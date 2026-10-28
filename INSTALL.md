@@ -1,242 +1,196 @@
-# NEXUS --- Panduan Instalasi
+NEXUS adalah alat OSINT berbasis terminal. Fitur yang tersedia meliputi penjelajah dan pencarian OSINT Framework, direktori situs OSINT tambahan, pencarian kode pos, pemeriksaan wilayah plat kendaraan beserta tautan resmi cek pajak, pemeriksaan awalan nomor HP, pemeriksaan format NIK/NISN, pencarian informasi IP/domain, serta beberapa pilihan pelacakan resi.
 
-NEXUS adalah alat OSINT berbasis terminal. Fitur yang tersedia meliputi
-penjelajah dan pencarian OSINT Framework, direktori situs OSINT
-tambahan, pencarian kode pos, pengecekan wilayah plat kendaraan beserta
-tautan resmi cek pajak, pengecekan awalan nomor HP, pemeriksaan format
-NIK/NISN, pencarian informasi IP/domain, serta beberapa pilihan
-pelacakan resi.
+Gunakan alat ini secara bertanggung jawab. Akses hanya informasi yang diizinkan, patuhi hukum dan ketentuan layanan, serta hormati privasi orang lain. Hasil pencarian dapat tidak lengkap atau tidak akurat.
 
-> **Gunakan secara bertanggung jawab:** Selidiki hanya informasi yang
-> memang boleh kamu akses. Patuhi hukum, ketentuan layanan masing-masing
-> situs, dan privasi orang lain. Hasil dari alat publik bisa tidak
-> lengkap atau tidak akurat.
+PERSYARATAN
 
-## Persyaratan
+- Python 3.7 atau lebih baru
+- Koneksi internet untuk pencarian daring dan membuka situs eksternal
+- Git jika ingin mengunduh proyek menggunakan Git
 
--   Python **3.7 atau lebih baru**
--   Koneksi internet untuk pencarian daring, memperbarui data OSINT
-    Framework, dan membuka situs eksternal
--   Git (hanya jika kamu mengunduh proyek dengan cara clone)
+Fitur utama NEXUS menggunakan pustaka bawaan Python sehingga umumnya tidak memerlukan instalasi paket tambahan melalui pip.
 
-Fitur utama NEXUS menggunakan pustaka bawaan Python, jadi biasanya kamu
-**tidak perlu memasang paket dengan `pip`**.
+1. MENGUNDUH PROYEK
 
-## 1. Mengunduh proyek
+Opsi A — Menggunakan Git
 
-### Cara A --- Clone menggunakan Git
+Ganti OWNER/REPOSITORY dengan alamat repositori GitHub yang sebenarnya.
 
-Ganti `OWNER/REPOSITORY` dengan alamat GitHub repositori yang
-sebenarnya:
+    git clone https://github.com/OWNER/REPOSITORY.git
+    cd REPOSITORY
 
-``` bash
-git clone https://github.com/OWNER/REPOSITORY.git
-cd REPOSITORY
-```
+Opsi B — Mengunduh ZIP
 
-### Cara B --- Unduh ZIP
+1. Buka repositori ini di GitHub.
+2. Pilih Code > Download ZIP.
+3. Ekstrak file ZIP.
+4. Buka terminal di folder hasil ekstrak yang berisi main.py.
 
-1.  Buka repositori ini di GitHub.
-2.  Klik **Code → Download ZIP**.
-3.  Ekstrak file ZIP.
-4.  Buka terminal di folder hasil ekstrak, yaitu folder yang berisi
-    `main.py`.
+2. MEMERIKSA PYTHON
 
-## 2. Memeriksa Python
+Periksa apakah Python telah terpasang:
 
-Periksa apakah Python sudah terpasang:
+    python --version
 
-``` bash
-python --version
-```
+Di Linux atau Termux, gunakan:
 
-Di Linux atau Termux, kamu mungkin perlu memakai:
+    python3 --version
 
-``` bash
-python3 --version
-```
+Jika Python belum tersedia, pasang melalui situs resmi Python atau pengelola paket resmi sistem operasi yang digunakan.
 
-Jika perintah tidak ditemukan, pasang Python melalui situs resmi Python
-atau pengelola paket resmi sistem operasi yang kamu gunakan.
+3. MENJALANKAN NEXUS
 
-## 3. Menjalankan NEXUS
+Jalankan perintah dari folder yang berisi main.py.
 
-Jalankan perintah dari folder yang berisi `main.py`.
+Windows:
 
-### Windows
+    python main.py
 
-``` powershell
-python main.py
-```
+Jika perintah python tidak dikenali:
 
-Jika perintah `python` tidak dikenali, coba:
+    py main.py
 
-``` powershell
-py main.py
-```
+Linux / Ubuntu / WSL:
 
-### Linux / Ubuntu / WSL
+    python3 main.py
 
-``` bash
-python3 main.py
-```
+Termux (Android):
 
-### Termux (Android)
+    pkg update
+    pkg install python git
+    cd REPOSITORY
+    python main.py
 
-``` bash
-pkg update
-pkg install python git
-cd REPOSITORY
-python main.py
-```
+Jika proyek diunduh dalam bentuk ZIP, masuk ke folder hasil ekstrak. Sesuaikan nama folder dengan nama yang tersedia di perangkat.
 
-Jika kamu mengunduh ZIP, masuklah ke folder hasil ekstrak. Kamu tidak
-perlu mengetik `cd REPOSITORY` secara persis jika nama foldernya
-berbeda.
+4. OPSI MENJALANKAN PROGRAM
 
-## 4. Pilihan saat menjalankan program
+Menjalankan tanpa animasi pembuka:
 
-``` bash
-python main.py --fast
-python main.py --update
-```
+    python main.py --fast
 
-Gunakan `python3` sebagai pengganti `python` jika itu perintah Python
-yang tersedia di perangkatmu.
+Memperbarui data OSINT Framework:
 
--   `--fast` melewati animasi pembuka.
--   `--update` memaksa NEXUS memperbarui data OSINT Framework.
+    python main.py --update
 
-## 5. Menggunakan menu
+Pada sistem yang menggunakan perintah python3, ganti python dengan python3.
 
-Setelah program terbuka, masukkan nomor yang tertera di samping fitur
-yang ingin digunakan.
+5. MENU FITUR
 
--   **1 --- OSINT Framework:** Menjelajahi direktori OSINT Framework.
--   **2 --- Cari Tools:** Mencari alat dalam direktori berdasarkan kata
-    kunci.
--   **3 --- Kode Pos:** Mencari berdasarkan kode pos atau nama wilayah.
--   **4 --- Plat Nomor:** Memeriksa perkiraan wilayah asal plat dan
-    membuka tautan resmi untuk pengecekan pajak kendaraan.
--   **5 --- Cek Nomor HP:** Memperkirakan operator berdasarkan awalan
-    nomor; fitur ini tidak mengidentifikasi pemilik nomor.
--   **6 --- Perbarui Data:** Memperbarui data OSINT Framework.
--   **7 --- Osint Tambahan:** Membuka kategori OSINT tambahan dan
-    direktori situs, termasuk OSINTscan, Max Intel, Inquerely,
-    OSINT.dev, Sherlock Project Online, Lullar, Webmii, Epieos,
-    NetSpecter, Wayback Machine, Recosint, dan KazaSec.
--   **8 --- Cek NIK:** Membaca struktur NIK 16 digit. Fitur ini hanya
-    membantu memeriksa format/struktur, bukan memverifikasi identitas
-    secara resmi.
--   **9 --- Cek NISN:** Memeriksa format dan menyediakan jalur menuju
-    portal resmi.
--   **10 --- Cek IP:** Mencari informasi terkait IP/domain, seperti
-    perkiraan lokasi, ASN, dan reverse DNS jika tersedia.
--   **11 --- Cek Resi:** Menggunakan pilihan pelacakan paket yang
-    didukung.
--   **0 --- Keluar:** Menutup program.
+1 — OSINT Framework
+Menjelajahi direktori OSINT Framework.
 
-### Cara membuka situs OSINT tambahan
+2 — Cari Tools
+Mencari alat berdasarkan kata kunci.
 
-1.  Pilih `7` dari menu utama (**Osint Tambahan**).
-2.  Jika daftar kategori menampilkan pilihan **Osint Tambahan** secara
-    terpisah, pilih kategori tersebut.
-3.  Pilih situs dari daftar untuk melihat atau membukanya.
+3 — Kode Pos
+Mencari berdasarkan kode pos atau nama wilayah.
 
-Ketersediaan dan fitur situs ditentukan oleh pengelolanya dan dapat
-berubah sewaktu-waktu. Beberapa layanan mungkin membatasi akses, meminta
-akun, atau tidak memberikan hasil.
+4 — Plat Nomor
+Memeriksa perkiraan wilayah asal plat dan membuka tautan resmi untuk pengecekan pajak kendaraan.
 
-## 6. Pengaturan opsional
+5 — Cek Nomor HP
+Memperkirakan operator berdasarkan awalan nomor. Fitur ini tidak mengidentifikasi pemilik nomor.
 
-### Data kode pos
+6 — Perbarui Data
+Memperbarui data OSINT Framework.
 
-Secara bawaan, NEXUS dapat mencoba mencari kode pos melalui layanan
-daring. Jika ingin menggunakan data CSV lokal, letakkan `kodepos.csv` di
-folder yang sama dengan `main.py` atau di lokasi berikut:
+7 — Osint Tambahan
+Membuka direktori situs OSINT tambahan, termasuk:
+- OSINTscan
+- Max Intel
+- Inquerely
+- OSINT.dev
+- Sherlock Project Online
+- Lullar
+- Webmii
+- Epieos
+- NetSpecter
+- Wayback Machine
+- Recosint
+- KazaSec
 
-``` text
-~/.nexus_osint/kodepos.csv
-```
+8 — Cek NIK
+Membaca struktur NIK 16 digit. Fitur ini bukan layanan verifikasi identitas resmi.
+
+9 — Cek NISN
+Memeriksa format NISN dan menyediakan jalur menuju portal resmi.
+
+10 — Cek IP
+Mencari informasi IP/domain, seperti perkiraan lokasi, ASN, dan reverse DNS jika tersedia.
+
+11 — Cek Resi
+Menggunakan pilihan pelacakan paket yang didukung.
+
+0 — Keluar
+Menutup program.
+
+Membuka situs OSINT tambahan:
+1. Pilih nomor 7 dari menu utama.
+2. Jika tersedia kategori Osint Tambahan di daftar kategori, pilih kategori tersebut.
+3. Pilih situs yang ingin dibuka.
+
+Ketersediaan dan fitur situs pihak ketiga dapat berubah. Beberapa layanan mungkin membatasi akses atau tidak memberikan hasil.
+
+6. PENGATURAN OPSIONAL
+
+Data kode pos
+
+NEXUS dapat mencoba pencarian kode pos melalui layanan daring. Untuk menggunakan data CSV lokal, letakkan file kodepos.csv di folder yang sama dengan main.py atau di lokasi:
+
+    ~/.nexus_osint/kodepos.csv
 
 CSV harus memiliki judul kolom berikut:
 
-``` csv
-kodepos,kelurahan,kecamatan,kota,provinsi
-```
+    kodepos,kelurahan,kecamatan,kota,provinsi
 
-Kamu dapat mengganti API kode pos daring melalui variabel lingkungan
-`NEXUS_KODEPOS_API`. URL yang digunakan harus memuat `{q}` sebagai
-tempat kata kunci pencarian.
+API kode pos daring dapat diganti melalui variabel lingkungan NEXUS_KODEPOS_API. URL harus memuat {q} sebagai tempat kata kunci pencarian.
 
-### API pelacakan resi
+API pelacakan resi
 
-Beberapa pilihan pelacakan kurir mungkin memerlukan API key BinderByte.
-Jika kamu memiliki API key, atur variabel lingkungan
-`NEXUS_BINDERBYTE_KEY`.
+Beberapa pilihan pelacakan kurir mungkin memerlukan API key BinderByte. Jika memiliki API key, atur variabel lingkungan NEXUS_BINDERBYTE_KEY.
 
-**Linux / WSL / Termux (untuk sesi terminal saat ini):**
+Linux / WSL / Termux:
 
-``` bash
-export NEXUS_BINDERBYTE_KEY="API_KEY_KAMU"
-python main.py
-```
+    export NEXUS_BINDERBYTE_KEY="API_KEY_KAMU"
+    python main.py
 
-**Windows PowerShell (untuk sesi terminal saat ini):**
+Windows PowerShell:
 
-``` powershell
-$env:NEXUS_BINDERBYTE_KEY="API_KEY_KAMU"
-python main.py
-```
+    $env:NEXUS_BINDERBYTE_KEY="API_KEY_KAMU"
+    python main.py
 
-Ganti `API_KEY_KAMU` dengan kunci milikmu sendiri. Jangan mengunggah API
-key, kata sandi, atau file `.env` ke GitHub.
+Ganti API_KEY_KAMU dengan API key milik sendiri. Jangan mengunggah API key, kata sandi, atau file .env ke GitHub.
 
-## 7. Mengatasi masalah
+7. PEMECAHAN MASALAH
 
-### `python: command not found`
+Python tidak ditemukan
 
-Coba `python3 main.py` di Linux/WSL/Termux atau `py main.py` di Windows.
+Coba python3 main.py di Linux/WSL/Termux atau py main.py di Windows.
 
-### Daftar OSINT Framework gagal diperbarui
+Data OSINT Framework gagal diperbarui
 
-Periksa koneksi internet, lalu coba:
+Periksa koneksi internet, lalu jalankan:
 
-``` bash
-python main.py --update
-```
+    python main.py --update
 
-Jika sumber data sedang tidak tersedia, proses pembaruan bisa gagal
-sementara. Coba lagi nanti.
+Jika sumber data sedang tidak tersedia, coba kembali nanti.
 
-### Situs tidak terbuka atau menampilkan kesalahan
+Situs tidak terbuka atau menampilkan kesalahan
 
-Situs mungkin sedang tidak aktif, pindah alamat, diblokir jaringan, atau
-mengubah aturan aksesnya. NEXUS tidak dapat menjamin semua situs pihak
-ketiga selalu tersedia.
+Situs mungkin sedang tidak aktif, berpindah alamat, diblokir jaringan, atau mengubah aturan akses.
 
-### Hasil kode pos atau pelacakan resi tidak muncul
+Hasil kode pos atau pelacakan resi tidak muncul
 
-Sebagian hasil bergantung pada layanan daring, data lokal, atau API key
-opsional. Periksa pengaturan di atas dan cocokkan informasi penting
-dengan sumber resmi.
+Periksa koneksi internet, data lokal, dan konfigurasi API key jika diperlukan. Verifikasi informasi penting melalui sumber resmi.
 
-### Informasi pajak kendaraan
+Informasi pajak kendaraan
 
-NEXUS tidak selalu bisa mengambil status pembayaran pajak terkini hanya
-dari nomor plat. Buka portal e-Samsat/Bapenda resmi yang tersedia, lalu
-masukkan data tambahan jika diminta. Pastikan status pembayaran dan
-tanggal jatuh tempo melalui instansi resmi.
+NEXUS tidak selalu dapat mengambil status pembayaran pajak terkini hanya dari nomor plat. Buka portal e-Samsat/Bapenda resmi yang tersedia dan masukkan data tambahan jika diminta. Pastikan status pembayaran serta tanggal jatuh tempo melalui instansi resmi.
 
-## Privasi dan penggunaan yang bertanggung jawab
+8. PRIVASI DAN PENGGUNAAN YANG BERTANGGUNG JAWAB
 
--   Gunakan alat ini hanya untuk tujuan yang sah dan informasi yang
-    memang boleh kamu akses.
--   Jangan menggunakan hasil pencarian untuk melecehkan, mengancam,
-    menyamar sebagai orang lain, atau menyebarkan informasi pribadi.
--   Kecocokan nama pengguna, awalan nomor HP, lokasi IP, atau hasil
-    pencarian bukan bukti bahwa beberapa data berasal dari orang yang
-    sama.
--   Jangan memasukkan informasi pribadi yang sensitif ke situs pihak
-    ketiga kecuali kamu mempercayai layanannya dan memahami kebijakan
-    privasinya.
+- Gunakan alat ini hanya untuk tujuan yang sah dan informasi yang boleh diakses.
+- Jangan menggunakan hasil pencarian untuk melecehkan, mengancam, menyamar sebagai orang lain, atau menyebarkan informasi pribadi.
+- Kecocokan nama pengguna, awalan nomor HP, lokasi IP, atau hasil pencarian bukan bukti bahwa beberapa data berasal dari orang yang sama.
+- Hindari memasukkan informasi sensitif ke situs pihak ketiga kecuali layanan tersebut tepercaya dan kebijakan privasinya telah dipahami.
