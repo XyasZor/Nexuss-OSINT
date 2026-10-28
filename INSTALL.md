@@ -1,16 +1,5 @@
-NEXUS - PANDUAN INSTALASI DAN PENGGUNAAN
+PANDUAN INSTALASI DAN PENGGUNAAN
 =========================================
-
-VERSI
------
-Versi aplikasi: 1.2
-
-Periksa versi Python:
-    python --version
-
-Ubuntu/WSL atau Termux:
-    python3 --version
-
 
 WINDOWS
 -------
@@ -181,12 +170,4 @@ Informasi pajak kendaraan:
   Periksa melalui portal resmi e-Samsat atau Bapenda.
 
 
-PRIVASI DAN PENGGUNAAN YANG BERTANGGUNG JAWAB
---------------------------------------------
-- Gunakan alat untuk tujuan yang sah dan informasi yang boleh diakses.
-- Jangan gunakan hasil pencarian untuk mengancam, melecehkan,
-  menyamar sebagai orang lain, atau menyebarkan informasi pribadi.
-- Nama pengguna yang cocok, awalan nomor HP, lokasi IP, dan hasil
-  pencarian bukan bukti bahwa data berasal dari orang yang sama.
-- Hindari memasukkan informasi sensitif ke situs pihak ketiga
-  yang tidak tepercaya.
+## Cuma Untuk Edukasi, Tanggung Jawab Ditanggung Oleh User
