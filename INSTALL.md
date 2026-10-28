@@ -1,173 +1,187 @@
-PANDUAN INSTALASI DAN PENGGUNAAN
-=========================================
+NEXUS OSINT adalah toolbox untuk membantu pengguna mengakses berbagai sumber dan alat OSINT melalui satu tempat.
 
-WINDOWS
--------
-1. Pasang Python:
-   https://www.python.org/downloads/
+Daftar Isi
 
-2. Aktifkan "Add Python to PATH" saat instalasi.
+Persyaratan
 
-3. Buka CMD atau PowerShell.
+Instalasi Windows
 
-4. Unduh repositori:
-    git clone https://github.com/OWNER/REPOSITORY.git
-    cd REPOSITORY
+Instalasi Ubuntu dan WSL
 
-   Ganti OWNER/REPOSITORY dengan alamat repositori GitHub milikmu.
+Instalasi Termux
 
-5. Jalankan:
-    python main.py
+Menjalankan Program
 
-   Jika tidak bisa:
-    py main.py
+Pembaruan
 
-Perintah tambahan:
-    python main.py --fast
-    python main.py --update
+Pemecahan Masalah
 
---fast   : Melewati animasi pembuka.
---update : Memperbarui data OSINT Framework.
+Penggunaan yang Bertanggung Jawab
 
+Persyaratan
 
-UBUNTU / WSL
-------------
-1. Pasang Python dan Git:
-    sudo apt update
-    sudo apt install -y python3 git
+Pastikan perangkat memiliki:
 
-2. Unduh repositori:
-    git clone https://github.com/OWNER/REPOSITORY.git
-    cd REPOSITORY
+Python 3 yang kompatibel dengan proyek.
 
-3. Jalankan:
-    python3 main.py
+Git untuk mengunduh repository.
 
-Perintah tambahan:
-    python3 main.py --fast
-    python3 main.py --update
+Koneksi internet.
 
+Terminal atau command prompt.
 
-TERMUX (ANDROID)
-----------------
-1. Perbarui paket:
-    pkg update && pkg upgrade
+1. Instalasi Windows
 
-2. Pasang Python dan Git:
-    pkg install -y python git
+Dapat dijalankan melalui Command Prompt atau PowerShell.
 
-3. Unduh repositori:
-    git clone https://github.com/OWNER/REPOSITORY.git
-    cd REPOSITORY
+Pasang Python dan Git
 
-4. Jalankan:
-    python main.py
+Python: https://www.python.org/downloads/
 
-Perintah tambahan:
-    python main.py --fast
-    python main.py --update
+Git: https://git-scm.com/downloads
 
+Saat memasang Python, aktifkan opsi Add Python to PATH.
 
-FITUR MENU
-----------
-1. OSINT Framework
-   Menjelajahi direktori OSINT Framework.
+Unduh Repository
 
-2. Cari Tools
-   Mencari alat berdasarkan kata kunci.
+git clone https://github.com/XyasZor/Nexuss-OSINT.git
+cd Nexuss-OSINT
 
-3. Kode Pos
-   Mencari kode pos berdasarkan wilayah.
+Instal Dependensi
 
-4. Plat Nomor
-   Memeriksa perkiraan wilayah asal plat dan membuka tautan resmi
-   pengecekan pajak kendaraan.
+Jika repository menyediakan file requirements.txt, jalankan:
 
-5. Cek Nomor HP
-   Memperkirakan operator berdasarkan awalan nomor.
-   Tidak mengidentifikasi pemilik nomor.
+python -m pip install -r requirements.txt
 
-6. Perbarui Data
-   Memperbarui data OSINT Framework.
+Jalankan Program
 
-7. Osint Tambahan
-   Daftar situs:
-   - OSINTscan
-   - Max Intel
-   - Inquerely
-   - OSINT.dev
-   - Sherlock Project Online
-   - Lullar
-   - Webmii
-   - Epieos
-   - NetSpecter
-   - Wayback Machine
-   - Recosint
-   - KazaSec
+Ikuti perintah peluncuran yang tercantum di README atau dokumentasi proyek.
 
-8. Cek NIK
-   Membaca struktur NIK 16 digit.
-   Bukan layanan verifikasi identitas resmi.
+2. Instalasi Ubuntu dan WSL
 
-9. Cek NISN
-   Memeriksa format NISN dan menyediakan akses ke portal resmi.
+Pasang Git dan Python
 
-10. Cek IP
-    Mencari informasi IP atau domain, seperti perkiraan lokasi,
-    ASN, dan reverse DNS jika tersedia.
+sudo apt update
+sudo apt install -y git python3 python3-pip python3-venv
 
-11. Cek Resi
-    Membuka pilihan layanan pelacakan paket yang didukung.
+Unduh Repository
 
-0. Keluar
-   Menutup program.
+git clone https://github.com/XyasZor/Nexuss-OSINT.git
+cd Nexuss-OSINT
 
+Buat Lingkungan Python
 
-PENGATURAN OPSIONAL
--------------------
-DATA KODE POS
+python3 -m venv .venv
+source .venv/bin/activate
 
-Letakkan file kodepos.csv di folder yang sama dengan main.py
-atau di lokasi:
-    ~/.nexus_osint/kodepos.csv
+Instal Dependensi
 
-Format kolom CSV:
-    kodepos,kelurahan,kecamatan,kota,provinsi
+Jika tersedia requirements.txt:
 
+python -m pip install -r requirements.txt
 
-API PELACAKAN RESI
+Jalankan Program
 
-Beberapa layanan mungkin memerlukan API key BinderByte.
+Gunakan perintah peluncuran yang tercantum dalam dokumentasi proyek.
 
-Ubuntu / WSL / Termux:
-    export NEXUS_BINDERBYTE_KEY="API_KEY_KAMU"
-    python3 main.py
+3. Instalasi Termux
 
-Windows PowerShell:
-    $env:NEXUS_BINDERBYTE_KEY="API_KEY_KAMU"
-    python main.py
+Pasang Paket yang Dibutuhkan
 
-Ganti API_KEY_KAMU dengan API key milik sendiri.
-Jangan unggah API key, kata sandi, atau file .env ke GitHub.
+pkg update && pkg upgrade -y
+pkg install -y git python
 
+Unduh Repository
 
-PEMECAHAN MASALAH
------------------
-Python tidak ditemukan:
-- Windows: coba py main.py.
-- Ubuntu/WSL: coba python3 main.py.
-- Termux: jalankan pkg install python.
+git clone https://github.com/XyasZor/Nexuss-OSINT.git
+cd Nexuss-OSINT
 
-Data OSINT Framework gagal diperbarui:
-- Periksa koneksi internet, lalu coba opsi --update.
+Instal Dependensi
 
-Situs tidak terbuka:
-- Situs pihak ketiga mungkin sedang tidak aktif, berganti alamat,
-  atau membatasi akses.
+Jika tersedia requirements.txt:
 
-Informasi pajak kendaraan:
-- Status pajak terkini tidak selalu tersedia hanya dari nomor plat.
-  Periksa melalui portal resmi e-Samsat atau Bapenda.
+python -m pip install -r requirements.txt
 
+Jalankan Program
 
-## Cuma Untuk Edukasi, Tanggung Jawab Ditanggung Oleh User
+Gunakan perintah peluncuran yang tercantum dalam dokumentasi proyek.
+
+Menjalankan Program
+
+Nama file utama dan argumen program harus mengikuti implementasi yang tersedia di repository.
+
+Untuk membaca dokumentasi di Windows:
+
+type README.md
+
+Untuk membaca dokumentasi di Ubuntu, WSL, atau Termux:
+
+cat README.md
+
+Jangan menjalankan nama file atau argumen yang tidak tersedia di proyek.
+
+Pembaruan
+
+Untuk mengambil perubahan terbaru dari GitHub, masuk ke folder repository lalu jalankan:
+
+git pull
+
+Jika ada perubahan pada dependensi, periksa dokumentasi proyek dan instal kembali dependensi yang diperlukan.
+
+Pemecahan Masalah
+
+Git tidak ditemukan
+
+Pastikan Git sudah terpasang dan dapat dipanggil dari terminal.
+
+Python tidak ditemukan
+
+Periksa instalasi Python dengan:
+
+Windows:
+
+python --version
+
+Ubuntu, WSL, atau Termux:
+
+python3 --version
+
+Di Termux, perintah berikut juga dapat digunakan:
+
+python --version
+
+File requirements.txt tidak ditemukan
+
+Tidak semua proyek Python menyediakan file tersebut. Periksa file yang tersedia di repository dan ikuti dokumentasi proyek.
+
+Instalasi dependensi gagal
+
+Pastikan koneksi internet berfungsi.
+
+Periksa versi Python yang dibutuhkan.
+
+Baca pesan kesalahan untuk mengetahui paket yang bermasalah.
+
+Gunakan lingkungan virtual jika diperlukan.
+
+Program tidak dapat dijalankan
+
+Periksa README, nama file utama, dependensi, dan argumen yang benar-benar didukung oleh proyek.
+
+Penggunaan yang Bertanggung Jawab
+
+Gunakan NEXUS OSINT untuk tujuan yang sah.
+
+Patuhi hukum yang berlaku dan ketentuan layanan situs yang diakses.
+
+Jangan menggunakan hasil pencarian untuk mengancam, melecehkan, menipu, atau menyebarkan informasi pribadi.
+
+Informasi publik dapat tidak akurat, sudah kedaluwarsa, atau merujuk kepada orang yang berbeda.
+
+Lindungi API key, kata sandi, dan informasi sensitif lainnya.
+
+Repository
+
+GitHub: https://github.com/XyasZor/Nexuss-OSINT
+
+Untuk melihat kode sumber, pembaruan, dan dokumentasi terbaru, kunjungi repository resmi tersebut.
